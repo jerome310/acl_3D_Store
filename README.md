@@ -15,4 +15,6 @@
 IGNORE THAT VIDEO! It'll ignore your tailwind files which won't give you the css for it
 
 # Tailwind CSS Command
-npx tailwindcss -i ./src/tailwind.css -o ./assets/application.css --watch 
+1) Go to tailwind css docs and run all their commands
+2) When you need to add things inside tailwindcss.config "copy Ariel Cameron Leather Sense tailwindcss.config file"
+3) Run final command to connect all files to tailwind css: npx tailwindcss -i ./src/tailwind.css -o ./assets/application.css --watch 
