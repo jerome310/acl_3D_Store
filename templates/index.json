@@ -1,0 +1,9 @@
+{
+    "sections": {
+        "video-game-screen": {
+            "type": "video-game-screen",
+            "settings": {}
+        }
+    },
+    "order": ["video-game-screen"]
+}
