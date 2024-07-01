@@ -17,17 +17,31 @@
         }
     }
 
-   @keyframes gradual-color-change {
-  0% { color: #feb82b; }
-  25% { color: #2387ff; }
-  50% { color: #e561a1; }
-  75% { color: #9b59b6; }
-  100% { color: #feb82b; }
-}
+    @keyframes gradual-color-change {
+        0% {
+            color: #feb82b;
+        }
 
-.animate-colors {
-  animation: gradual-color-change 5s infinite;
-}
+        25% {
+            color: #2387ff;
+        }
+
+        50% {
+            color: #e561a1;
+        }
+
+        75% {
+            color: #9b59b6;
+        }
+
+        100% {
+            color: #feb82b;
+        }
+    }
+
+    .animate-colors {
+        animation: gradual-color-change 5s infinite;
+    }
 
 
     .press-enter {
@@ -37,15 +51,44 @@
 </style>
 
 
+<style>
+    /* Your CSS code */
+</style>
+
 <header class="relative flex items-center justify-center h-full overflow-hidden">
+    {% if section.settings.video_url == blank %}
     <video autoplay loop muted class="absolute z-10 w-full h-full" style="object-fit: cover;">
         <source src="{{ 'video-game-screen.mp4' | asset_url }}" type="video/mp4" />
         Your browser does not support the video tag.
     </video>
+    {% else %}
+    <video autoplay loop muted class="absolute z-10 w-full h-full" style="object-fit: cover;">
+        <source src="{{ section.settings.video_url }}" type="video/mp4" />
+        Your browser does not support the video tag.
+    </video>
+    {% endif %}
+
     <div class="relative z-30 text-2xl animate-colors flex h-screen">
         <div class="flex items-center mt-80">
             <img class="w-[20px] h-[20px]" src="{{ 'triangle-arrow.png' | asset_url }}" alt="">
-            <p>Press Enter</p>
+            <button id="enterButton">Press Enter</button>
         </div>
     </div>
 </header>
+
+<script>
+    // Your JavaScript code
+</script>
+
+{% schema %}
+{
+"name": "Video Game Screen",
+"settings": [
+{
+"type": "url",
+"id": "video_url",
+"label": "Video URL"
+}
+]
+}
+{% endschema %}
