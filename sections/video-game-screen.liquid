@@ -50,7 +50,21 @@
     }
 </style>
 
-<header class="relative flex items-center justify-center h-full overflow-hidden">
+<header class="relative h-full overflow-hidden">
+    {% comment %} Logo {% endcomment %}
+    <div class="absolute bottom-0 top-0 z-30 pt-5 w-full flex justify-center">
+        <a href="{{ shop.url }}">
+            {% if section.settings.image == blank %}
+            <img class="w-[150px] h-[150px] md:w-[175px] md:h-[175px]" src="{{ 'acl_logo.png' |  asset_url }}"
+                alt="My company logo">
+            {% else %}
+            <img class="w-[150px] h-[150px] md:w-[175px] md:h-[175px]"
+                src="{{ section.settings.image | img_url: 'master' }}" alt="My company logo">
+            {% endif %}
+        </a>
+    </div>
+
+
     {% comment %} Video background {% endcomment %}
     {% if section.settings.video_url == blank %}
     <video autoplay loop muted class="absolute z-10 w-full h-full" style="object-fit: cover;">
@@ -64,20 +78,7 @@
     </video>
     {% endif %}
 
-    {% comment %} Logo {% endcomment %}
-    <div class="absolute bottom-0 top-0 left-0 right-0 z-30 flex justify-start pt-5">
-        <a href="{{ shop.url }}">
-            {% if section.settings.image == blank %}
-            <img class="w-[150px] h-[150px] md:w-[175px] md:h-[175px]" src="{{ 'acl_logo.png' |  asset_url }}"
-                alt="My company logo">
-            {% else %}
-            <img class="w-[150px] h-[150px] md:w-[175px] md:h-[175px]"
-                src="{{ section.settings.image | img_url: 'master' }}" alt="My company logo">
-            {% endif %}
-        </a>
-    </div>
-
-    <div class="relative z-30 text-2xl animate-colors flex h-screen">
+    <div class="relative z-30 text-2xl animate-colors flex items-center justify-center h-screen">
         <div class="flex items-center mt-80">
             <img class="w-[20px] h-[20px]" src="{{ 'triangle-arrow.png' | asset_url }}" alt="">
             <button id="enterButton">Press Enter</button>
