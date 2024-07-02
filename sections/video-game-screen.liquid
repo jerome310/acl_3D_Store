@@ -69,22 +69,31 @@
     {% if section.settings.video_url == blank %}
     <video autoplay loop muted class="absolute z-10 w-full h-full" style="object-fit: cover;">
         <source src="{{ 'video-game-screen.mp4' | asset_url }}" type="video/mp4" />
-        Your browser does not support the video tag.
     </video>
     {% else %}
     <video autoplay loop muted class="absolute z-10 w-full h-full" style="object-fit: cover;">
         <source src="{{ section.settings.video_url }}" type="video/mp4" />
-        Your browser does not support the video tag.
     </video>
     {% endif %}
 
+    <a href="/pages/avatar-builder"></a>
     <div class="relative z-30 text-2xl animate-colors flex items-center justify-center h-screen">
         <div class="flex items-center mt-80">
             <img class="w-[20px] h-[20px]" src="{{ 'triangle-arrow.png' | asset_url }}" alt="">
             <button id="enterButton">Press Enter</button>
+            
         </div>
     </div>
+    </a>
 </header>
+
+<script>
+    document.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                window.location.href = '/pages/avatar-builder';
+            }
+        });
+</script>
 
 
 {% schema %}
